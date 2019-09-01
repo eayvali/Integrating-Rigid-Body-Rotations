@@ -31,7 +31,7 @@ Here's the determinant of the rotation matrix obtained using exponential update 
 ![Rotation matrix determinant drift](./figs/determinant_drift.png)
 
 **Computation Time**
-Here's the average time it takes to run each integration using Δt=0.1s for 10000s :
+The average time to run each integration using Δt=0.1s for 10000s :
 
 RK4 nonunit quaternion integration:
 Elapsed time is 121.762818 seconds.
@@ -51,14 +51,15 @@ Elapsed time is 55.430249 seconds.
 RK4  rotation matrix integration:
 Elapsed time is 357.984271 seconds.
 
+**Accuracy**
 The figure below shows the orientation error accumulated using each method. The ground truth was computed using RK4 unit quaternion integration by normalizing the quaternion after each iteration.
 
 ![Rotation error](./figs/rotation_error.png)
 
 **Rotate Super Mario**
-I used a step size of Δt=0.5s and applied the rotations computed by each integration method to super mario.
-As step size increases exponential method becomes more inaccurate but the size of the mario is still comparable since determinant doesn't change substantially.
-Around 120 second the error of the exponential method decreases.The bottom left shows the results with integrating rotation matrix elements without reorthogonalization. Therefore, you can see that the volume also scales because determinant is not preserved.
+
+I used a step size of Δt=0.5s and applied the rotations computed by each integration method to super mario. As time increases exponential method becomes more inaccurate but the size of the mario is still comparable since determinant doesn't change substantially.
+Around 120 second the error of the exponential method decreases again and it looks more in sync with the nonunit quaternion. The bottom left shows the results with integrating rotation matrix elements without reorthogonalization. You can see that the volume scales because determinant is not preserved.
 
 ![mario error](./figs/mario_error.png)
 
