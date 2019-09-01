@@ -46,19 +46,22 @@ Here's the result after running the simulationnclose to 20000s:
 Here's the total time it took to generate the data in Matlab:
 
 RK4 nonunit quaternion integration:
-Elapsed time is 18.559915 seconds.
+Elapsed time is 11.293976 seconds.
 
 RK4 nonunit quaternion integration (c=0):
-Elapsed time is 17.654188 seconds.
+Elapsed time is 11.285026 seconds.
 
-Quaternion exponential update:
-Elapsed time is 5.580483 seconds.
+RK4 unit quaternion integration (ground truth)
+Elapsed time is 14.432094 seconds.
 
-Rotation matrix exponential update:
-Elapsed time is 17.477849 seconds.
+Unit quaternion exponential update
+Elapsed time is 2.665549 seconds.
 
-RK4  rotation matrix integration:
-Elapsed time is 52.569202 seconds.
+Rotation matrix exponential update
+Elapsed time is 13.484136 seconds.
+
+RK4  rotation matrix integration
+Elapsed time is 48.204235 seconds.
 
 
 Enjoy!

@@ -68,9 +68,9 @@ q_t=[1,0,0,0];
 tic
 for t=0:delt:t_max
 q_next=exp_quat_const_vel_integration(q_t,t,delt);
-if q_next(1)<0
-   q_next=-q_next; 
-end
+% if q_next(1)<0
+%    q_next=-q_next; 
+% end
 q_t=q_next;
 qexp_t(i)=t;
 qexp(i,:)=q_next;
