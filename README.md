@@ -34,7 +34,6 @@ Here's the determinant of the rotation matrix obtained using exponential update 
 Enjoy!
 
 **Files:**
-* /code/sim.py : python script used to animate super mario. It uses [vtk](https://vtk.org/).
 * /code/generate_sim_data.m : main matlab file that generates the figures above
 
 
