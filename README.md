@@ -43,7 +43,7 @@ Here's the result after running the simulationnclose to 20000s
 
 ![Mario animation end](./figs/mario_end.gif)
 
-Here's the total tme it took to run the simulation in Matlab:
+Here's the total time it took to generate the data in Matlab:
 
 RK4 nonunit quaternion integration:
 Elapsed time is 18.559915 seconds.
