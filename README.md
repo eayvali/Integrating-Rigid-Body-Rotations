@@ -55,8 +55,14 @@ The figure below shows the orientation error accumulated using each method. The 
 
 ![Rotation error](./figs/rotation_error.png)
 
-**Step size**
+**Rotate Super Mario**
+I used a step size of Δt=0.5s and applied the rotations computed by each integration method to super mario.
+As step size increases exponential method becomes more inaccurate but the size of the mario is still comparable since determinant doesn't change substantially.
+Around 120 second the error of the exponential method decreases.The bottom left shows the results with integrating rotation matrix elements without reorthogonalization. Therefore, you can see that the volume also scales because determinant is not preserved.
 
+![mario error](./figs/mario_error.png)
+
+![Mario](./figs/mario.gif)
 
 Enjoy!
 
