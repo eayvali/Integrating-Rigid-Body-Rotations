@@ -30,6 +30,36 @@ Here's the determinant of the rotation matrix obtained using exponential update 
 
 ![Rotation matrix determinant drift](./figs/determinant_drift.png)
 
+I applied the resulting rotation matrices in simulation to rotate Super Mario using integration step size Δt=0.5, angular velocity weights a=0.5π/2, b=0.4π/10.
+As you can see in bottom left corner, integrating rotation matrix elements no longer provides rigid body transformation. I don't really see a noticable difference between the 3 approaches at the beginning of the simulation.
+
+![Mario animation beginning](./figs/mario_beginning.gif)
+
+
+Here's the result after running the simulationnclose to 20000s:
+
+![Mario animation end](./figs/mario_end.gif)
+
+Here's the total time it took to generate the data in Matlab:
+
+RK4 nonunit quaternion integration:
+Elapsed time is 11.293976 seconds.
+
+RK4 nonunit quaternion integration (c=0):
+Elapsed time is 11.285026 seconds.
+
+RK4 unit quaternion integration (ground truth)
+Elapsed time is 14.432094 seconds.
+
+Unit quaternion exponential update
+Elapsed time is 2.665549 seconds.
+
+Rotation matrix exponential update
+Elapsed time is 13.484136 seconds.
+
+RK4  rotation matrix integration
+Elapsed time is 48.204235 seconds.
+
 **Files:**
 * /code/sim.py : python script used to animate super mario. It uses [vtk](https://vtk.org/).
 * /code/generate_sim_data.m : main matlab file that generates the figures above
