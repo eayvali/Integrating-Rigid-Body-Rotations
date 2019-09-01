@@ -73,7 +73,7 @@ class VTK_Tools:
 class vtkTimerCallback():
 
     def __init__(self):
-        self.counter = 5000
+        self.counter = 19000
         self.play_rate=1
         print('Started Rendering')
 
