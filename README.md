@@ -11,7 +11,7 @@ Below is a summary of the implementation of the paper and some test results.
 
 ![Nonunit quaternions](./figs/unit_vs_nonunit_quaternion.png)
 
-The paper shows that the ODE that relates the unit quaternion derivative to angular velocity in body frame is the  minimum norm solution to the general form of the equation for nonunit quaternion. The parameter c is defined as such to minimize the drift of the quaternion norm. Note that this is only necessary if norm gets close to zero or floating point limit. The equations for converting quaternion to rotation matrix is different for nonunit quaternions. Therefore, as long as you're consistent with this notation and you do the normalization during conversion, the drift in integration does not have an affect on the rotation matrix. The paper also gives a simple example where angular velocity depends on rotation calculation and shows that the momentum conservation of nonunit quaternion approach is similar.
+The paper shows that the ODE that relates the unit quaternion derivative to angular velocity in body frame is the  minimum norm solution to the general form of the equation for nonunit quaternion. The parameter c is defined as such to minimize the drift of the quaternion norm. Note that this is only necessary if norm gets close to zero or floating point limit. The equations for converting quaternion to rotation matrix is different for nonunit quaternions. Therefore, as long as you're consistent with this notation and you do the normalization during conversion, the drift in integration should not have an affect on the rotation matrix. The paper also gives a simple example where angular velocity depends on rotation calculation and shows that the momentum conservation of nonunit quaternion approach is similar.
 
 **Integration of angular velocity using exponential update and non-unit quaternions:** The table below shows the equations for different implementations presented in the paper. The exponential methods are very common in robotics and aerospace applications to preserve the structure of SO(3).Indeed, the algorithm that I mentioned above and will share later  uses the exponential update rule in the process model of a kalman filter. The paper shows that you can use nonunit quaternions with a standard ODE solver like Runge-Kutta and get better results that exponential update method which assumes constant velocity or constant acceleration between measurements.
 
@@ -26,27 +26,18 @@ Here's the drift in quaternion norm for different implementations. You can see t
 
 ![Quaternion norm drift](./figs/quat_drift.png)
 
-Here's the determinant of the rotation matrix obtained using exponential update with unit quaternions, exponential update using rotation matrices, integration of nonunit quaternions with RK4 (c=0) and integration of nonunit quaternions with RK4, where the drift limit factor c is nonzero. As you can see the drift doesn't affect the rotation matrix since the normalization is captured during conversion. Overall, the approach in the paper gives better results than the exponenial update method here. On the right, you also see the integration of the rotation matrix elements using RK4, which clearly shows that you need an [orthogonalization](https://en.wikipedia.org/wiki/Gram–Schmidt_process) step after that (hopefully this approach fell out of practice completely).
+Here's the determinant of the rotation matrix obtained using exponential update with unit quaternions, exponential update using rotation matrices, integration of nonunit quaternions with RK4 (c=0) and integration of nonunit quaternions with RK4, where the drift limit factor c is nonzero.
 
 ![Rotation matrix determinant drift](./figs/determinant_drift.png)
 
+As you can see the drift doesn't affect the rotation matrix since the normalization is captured during conversion. Overall, the approach in the paper gives better results than the exponenial update method here. On the right, you also see the integration of the rotation matrix elements using RK4, which clearly shows that you need an [orthogonalization](https://en.wikipedia.org/wiki/Gram–Schmidt_process) step after that (hopefully this approach fell out of practice completely).
 
 **Accuracy:**
 The figure below shows the orientation error accumulated using each method. The ground truth was computed using RK4 unit quaternion integration by normalizing the quaternion after each iteration.
 
 ![Rotation error](./figs/rotation_error.png)
-
-**Rotate Super Mario:**
-
-I used a step size of Δt=0.5s and applied the rotations computed by each integration method to super mario. As time increases exponential method becomes more inaccurate but the size of the mario is still comparable since determinant doesn't change substantially.
-Around 120 second the error of the exponential method decreases again and it looks more in sync with the nonunit quaternion. The bottom left shows the results with integrating rotation matrix elements without reorthogonalization. You can see that the volume scales because determinant is not preserved.
-
-![mario error](./figs/mario_error.png)
-
-![Mario](./figs/mario.gif)
-
 **Computation Time:**
-The average time to run each integration using Δt=0.1s for 10000s :
+The average time to run each integration using Δt=0.1s for 10000s in Matlab :
 
 RK4 nonunit quaternion integration:
 Elapsed time is 121.762818 seconds.
@@ -65,6 +56,17 @@ Elapsed time is 55.430249 seconds.
 
 RK4  rotation matrix integration:
 Elapsed time is 357.984271 seconds.
+
+**Rotate Super Mario:**
+
+I used a step size of Δt=0.5s and applied the rotations computed by each integration method to super mario. As time increases exponential method becomes more inaccurate but the size of the mario is still comparable since determinant doesn't change substantially.
+Around 120 second the error of the exponential method decreases again and it looks more in sync with the nonunit quaternion. The bottom left shows the results with integrating rotation matrix elements without reorthogonalization. You can see that the volume scales because determinant is not preserved.
+
+![mario error](./figs/mario_error.png)
+
+![Mario](./figs/mario.gif)
+
+
 
 Enjoy!
 
