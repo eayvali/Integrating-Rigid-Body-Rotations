@@ -70,10 +70,7 @@ Enjoy!
 
 **Files:**
 * /code/generate_sim_data.m : main matlab file that generates the figures above
-* /code/visualizaiton/sim.py : super mario simulation using (visualization toolkit)
-
-
-[visualization toolkit](https://vtk.org/)
+* /code/visualizaiton/sim.py : super mario simulation using [visualization toolkit](https://vtk.org/)
 
 
 
