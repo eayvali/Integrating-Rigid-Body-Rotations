@@ -35,9 +35,31 @@ As you can see in bottom left corner, integrating rotation matrix elements no lo
 
 ![Mario animation beginning](./figs/mario_beginning.gif)
 
-Here's the result after running the simulation close to 1000s.
+Here's the result after running the simulation close to 10000s.
+
+![Mario animation mid](./figs/mario_mid.gif)
+
+Here's the result after running the simulationnclose to 20000s
 
 ![Mario animation end](./figs/mario_end.gif)
+
+Here's the total tme it took to run the simulation in Matlab:
+
+RK4 nonunit quaternion integration:
+Elapsed time is 18.559915 seconds.
+
+RK4 nonunit quaternion integration (c=0):
+Elapsed time is 17.654188 seconds.
+
+Quaternion exponential update:
+Elapsed time is 5.580483 seconds.
+
+Rotation matrix exponential update:
+Elapsed time is 17.477849 seconds.
+
+RK4  rotation matrix integration:
+Elapsed time is 52.569202 seconds.
+
 
 Enjoy!
 

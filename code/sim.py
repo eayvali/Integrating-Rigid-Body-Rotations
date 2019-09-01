@@ -73,7 +73,7 @@ class VTK_Tools:
 class vtkTimerCallback():
 
     def __init__(self):
-        self.counter = 19000
+        self.counter = 39000
         self.play_rate=1
         print('Started Rendering')
 
@@ -250,4 +250,4 @@ def main(data_file_name, stl_name):
     
   
 if __name__ == '__main__':
-   main(data_file_name='test_data2.mat', stl_name = 'mario.stl')
+   main(data_file_name='test_data3.mat', stl_name = 'mario.stl')
