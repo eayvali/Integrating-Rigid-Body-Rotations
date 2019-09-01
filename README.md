@@ -30,6 +30,11 @@ Here's the determinant of the rotation matrix obtained using exponential update 
 
 ![Rotation matrix determinant drift](./figs/determinant_drift.png)
 
+I applied the resulting rotation matrices in simulation to rotate Super Mario using integration step size Δt=0.5, angular velocity weights a=0.5π/2, b=0.4π/10.
+As you can see in bottom left corner, integrating rotation matrix elements no longer provides rigib body transformation. I don't really see a noticable difference between the 3 approaches for the task of animating objects.
+
+![Mario animation](./figs/mario.gif)
+
 Enjoy!
 
 
