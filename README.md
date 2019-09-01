@@ -39,16 +39,16 @@ Elapsed time is 121.762818 seconds.
 RK4 nonunit quaternion integration (c=0):
 Elapsed time is 131.347234 seconds.
 
-RK4 unit quaternion integration
+RK4 unit quaternion integration:
 Elapsed time is 146.793169 seconds.
 
-Unit quaternion exponential update
+Unit quaternion exponential update:
 Elapsed time is 18.417385 seconds.
 
-Rotation matrix exponential update
+Rotation matrix exponential update:
 Elapsed time is 55.430249 seconds.
 
-RK4  rotation matrix integration
+RK4  rotation matrix integration:
 Elapsed time is 357.984271 seconds.
 
 The figure below shows the orientation error accumulated using each method. The ground truth was computed using RK4 unit quaternion integration by normalizing the quaternion after each iteration.
