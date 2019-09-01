@@ -39,7 +39,7 @@ Enjoy!
 
 **Files:**
 * /code/sim.py : python script used to animate super mario. It uses [vtk](https://vtk.org/).
-* /code/generate_sim_data.m : main matlab file that geenrates the figures above
+* /code/generate_sim_data.m : main matlab file that generates the figures above
 
 
 
