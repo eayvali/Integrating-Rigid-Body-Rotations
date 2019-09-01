@@ -35,11 +35,11 @@ As you can see in bottom left corner, integrating rotation matrix elements no lo
 
 ![Mario animation beginning](./figs/mario_beginning.gif)
 
-Here's the result after running the simulation close to 10000s.
+Here's the result after running the simulation close to 10000s:
 
 ![Mario animation mid](./figs/mario_mid.gif)
 
-Here's the result after running the simulationnclose to 20000s
+Here's the result after running the simulationnclose to 20000s:
 
 ![Mario animation end](./figs/mario_end.gif)
 
